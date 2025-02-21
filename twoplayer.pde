@@ -21,10 +21,10 @@ final int HALBERD2 = 11;
 final int SPEAR2 = 12;
 
 //entity-variables
-float player1X, player1Y, player1D, player2X, player2Y, player2D; //paddles
+float player1X, player1Y, player1Size, player1Angle, player2X, player2Y, player2Size, player2Angle; //paddles
 
 //keyboard variables
-boolean wkey, skey, akey, dkey, upkey, downkey, leftkey, rightkey;
+boolean wkey, skey, akey, dkey, ekey, upkey, downkey, leftkey, rightkey;
 
 //counter variables
 int transitionCounter;
@@ -34,6 +34,11 @@ color introBackground = #3B1414;
 color game1Background = #814230;
 color black = #000000;
 color white = #FFFFFF;
+color player = #5F0D0D;
+color handle = #5A3B29;
+color guard = #9B4C1E;
+color blade = #B4AFAB;
+color gold = #F5E211;
 
 void setup() {
 
@@ -44,14 +49,16 @@ void setup() {
   //initialize paddles
   player1X = 0 + 100;
   player1Y = height/2;
-  player1D = 100;
+  player1Size = 100;
+  player1Angle = 45;
 
   player2X = width - 100;
   player2Y = height/2;
-  player2D = 100;
+  player2Size = 100;
+  player2Angle = 45;
   
   //initializze keyboard variables
-  wkey = skey = akey = dkey = upkey = downkey = leftkey = rightkey = false;
+  wkey = skey = akey = dkey = ekey = upkey = downkey = leftkey = rightkey = false;
   
 }
 
