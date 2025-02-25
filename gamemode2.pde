@@ -14,36 +14,42 @@ void gameMode2() {
   //playOption
   
   SabreTitle(155,200);
+  sabreMenu(185,420);
   
-  if (selectedWeapon2 == SABRE2) {
+  if (selectedWeapon2 == SABRE) {
     
     pushMatrix();
-    SabreTitle(450,690);
+    SabreTitle(450,680);
     textSize(15);
-    text("Swing: 10", 450,710);
-    text("Cooldown: 90", 450,730);
+    text("Swing: 10", 450,700);
+    text("Cooldown: 90", 450,720);
+    text("Weight: 5lbs", 450,740);
+    scale(0.5);
+    sabreMenu(850,1450);
     popMatrix();
     
   }
   
-  if (selectedWeapon2 == HALBERD2) {
+  if (selectedWeapon2 == HALBERD) {
     
     pushMatrix();
-    HalberdTitle(450,690);
+    HalberdTitle(440,680);
     textSize(15);
-    text("Heavy Swing: 20", 450,710);
-    text("Cooldown: 200", 450,730);
+    text("Heavy Swing: 20", 440,700);
+    text("Cooldown: 200", 440,720);
+    text("Weight: 12lbs", 440,740);
     popMatrix();
     
   }
   
-  if (selectedWeapon2 == SPEAR2) {
+  if (selectedWeapon2 == SPEAR) {
     
     pushMatrix();
-    SpearTitle(450,690);
+    SpearTitle(450,680);
     textSize(15);
-    text("Thrust: 15", 450,710);
-    text("Cooldown: 130", 450,730);
+    text("Thrust: 15", 450,700);
+    text("Cooldown: 130", 450,720);
+    text("Weight: 7lbs", 450,740);
     popMatrix();
     
   }
@@ -57,13 +63,13 @@ void gameMode2() {
 void gameMode2Clicks() {
 
   if (mouseX > 100 && mouseX < 300 && mouseY > 200 && mouseY < 600) {
-    selectedWeapon2 = SABRE2;
+    selectedWeapon2 = SABRE;
   }
   if (mouseX > 400 && mouseX < 600 && mouseY > 200 && mouseY < 600) {
-    selectedWeapon2 = HALBERD2;
+    selectedWeapon2 = HALBERD;
   }
   if (mouseX > 700 && mouseX < 900 && mouseY > 200 && mouseY < 600) {
-    selectedWeapon2 = SPEAR2;
+    selectedWeapon2 = SPEAR;
   }
   if (dist(600,700, mouseX,mouseY) < 40) {
   

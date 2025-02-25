@@ -19,15 +19,27 @@ final int SPEAR = 9;
 final int SABRE2 = 10;
 final int HALBERD2 = 11;
 final int SPEAR2 = 12;
+final int weaponSabreMode = 13;
+final int weaponHalberdMode = 14;
+final int weaponSpearMode = 15;
+int attackMode = 16;
+final int idleMode = 17;
 
 //entity-variables
-float player1X, player1Y, player1Size, player1Angle, player2X, player2Y, player2Size, player2Angle; //paddles
+float player1X, player1attackX, player1Y, player1attackY, player1Size, player1Angle, player2X, player2attackX, player2Y, player2attackY, player2Size, player2Angle; //paddles
+
+float rotateW;
 
 //keyboard variables
 boolean wkey, skey, akey, dkey, ekey, upkey, downkey, leftkey, rightkey;
 
+//HP Variables
+float Player1HP;
+float Player2HP;
+
 //counter variables
 int transitionCounter;
+int attackHitTimer;
 
 //color-pallette
 color introBackground = #3B1414;
@@ -35,6 +47,7 @@ color game1Background = #814230;
 color black = #000000;
 color white = #FFFFFF;
 color player = #5F0D0D;
+color hitBox = #D33220;
 color handle = #5A3B29;
 color guard = #9B4C1E;
 color blade = #B4AFAB;
@@ -48,17 +61,36 @@ void setup() {
   
   //initialize paddles
   player1X = 0 + 100;
+  player1attackX = player1X;
   player1Y = height/2;
+  player1attackY = player1Y;
   player1Size = 100;
   player1Angle = 45;
 
   player2X = width - 100;
+  player2attackX = player2X;
   player2Y = height/2;
+  player2attackY = player2Y;
   player2Size = 100;
   player2Angle = 45;
   
-  //initializze keyboard variables
+  //initialize keyboard variables
   wkey = skey = akey = dkey = ekey = upkey = downkey = leftkey = rightkey = false;
+  
+  //other
+  attackMode = idleMode;
+  rotateW = 1.2;
+  
+  //initialize hp
+  Player1HP = 100;
+  Player2HP = 100;
+  
+  //initialize timer variables
+  attackHitTimer = 0;
+  
+  
+  mode = GAME;
+  selectedWeapon = SABRE;
   
 }
 

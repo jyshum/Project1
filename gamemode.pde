@@ -14,14 +14,18 @@ void gameMode() {
   //playOption
   
   SabreTitle(155,200);
-  
+  sabreMenu(185,420);
+ 
   if (selectedWeapon == SABRE) {
     
     pushMatrix();
-    SabreTitle(450,690);
+    SabreTitle(450,680);
     textSize(15);
-    text("Swing: 10", 450,710);
-    text("Cooldown: 90", 450,730);
+    text("Swing: 10", 450,700);
+    text("Cooldown: 90", 450,720);
+    text("Weight: 5lbs", 450,740);
+    scale(0.5);
+    sabreMenu(850,1450);
     popMatrix();
     
   }
@@ -29,10 +33,11 @@ void gameMode() {
   if (selectedWeapon == HALBERD) {
     
     pushMatrix();
-    HalberdTitle(450,690);
+    HalberdTitle(440,680);
     textSize(15);
-    text("Heavy Swing: 20", 450,710);
-    text("Cooldown: 200", 450,730);
+    text("Heavy Swing: 20", 440,700);
+    text("Cooldown: 200", 440,720);
+    text("Weight: 12lbs", 440,740);
     popMatrix();
     
   }
@@ -40,10 +45,11 @@ void gameMode() {
   if (selectedWeapon == SPEAR) {
     
     pushMatrix();
-    SpearTitle(450,690);
+    SpearTitle(450,680);
     textSize(15);
-    text("Thrust: 15", 450,710);
-    text("Cooldown: 130", 450,730);
+    text("Thrust: 15", 450,700);
+    text("Cooldown: 130", 450,720);
+    text("Weight: 7lbs", 450,740);
     popMatrix();
     
   }
@@ -134,4 +140,26 @@ void PlayTitle(float x, float y) {
   text("PLAY",0,0);
   popMatrix();
 
+}
+
+void sabreMenu(float x, float y) {
+
+  pushMatrix();
+  translate(x,y);
+  fill(handle);
+  rect(0,0,20,50); //handle
+  stroke(gold);
+  line(0,10,10,10);
+  line(0,20,10,20);
+  line(0,30,10,30);
+  stroke(0);
+  fill(guard);
+  ellipse(10,0,60,10); //guard
+  fill(blade);
+  quad(2.5,-140, 25,-200, 17.5,0, 0,0); //shaftBlade
+  fill(white);
+  noStroke();
+  quad(5,-5, 7,-132, 17,-155, 12, -10); //glimmer
+  popMatrix();
+  
 }
