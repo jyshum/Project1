@@ -4,6 +4,7 @@ void keyPressed() {
   if (key == 'a'|| key == 'A') akey = true;
   if (key == 'd'|| key == 'D') dkey = true;
   if (key == 'e'|| key == 'E') ekey = true;
+  if (key == 'ctrl'|| key == 'CTRL') ctrlkey = true;
   if (keyCode == UP) upkey = true;
   if (keyCode == DOWN) downkey = true;
   if (keyCode == LEFT) leftkey = true;
@@ -16,6 +17,7 @@ void keyReleased() {
   if (key == 'a'|| key == 'A') akey = false;
   if (key == 'd'|| key == 'D') dkey = false;
   if (key == 'e'|| key == 'E') ekey = false;
+  if (key == 'ctrl'|| key == 'CTRL') ctrlkey = false;
   if (keyCode == UP) upkey = false;
   if (keyCode == DOWN) downkey = false;
   if (keyCode == LEFT) leftkey = false;

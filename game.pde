@@ -1,14 +1,17 @@
 void game() {
 
+  
   background(game1Background); // background
 
    //attack system
   if (ekey == true) {
-    attackMode = weaponSabreMode;
     attackHitTimer = 0;
+    attackMode = weaponSabreMode;
   }
   
-  if (attackMode == weaponSabreMode) {
+  
+  
+    if (attackMode == weaponSabreMode) {
     if (attackHitTimer <= 30) {
       rotateW = rotateW + 0.04;
       attackHitTimer = attackHitTimer + 1;
@@ -17,12 +20,32 @@ void game() {
       rotateW = 1.1;
       fill(game1Background);
       noStroke();
-      circle(player1X + 150*cos(radians(player1Angle)),player1Y + 150*sin(radians(player1Angle)), 150);
+      circle(player1X + 150*cos(radians(player1Angle)),player1Y + 150*sin(radians(player1Angle)), 0);
+      attackCDTimer = 0;
+      attackCDTimer = attackCDTimer + 1;
     }
-  }
-  println("Hit timer" + attackHitTimer);
-  println("Attack mode" + attackMode);
-  println("Sabre mode" + weaponSabreMode);
+    
+    println(attackCDTimer);
+
+    } 
+  
+  //if (attackMode == weaponSabreMode) {
+  //  if (attackHitTimer <= 30) {
+  //    rotateW = rotateW + 0.04;
+  //    attackHitTimer = attackHitTimer + 1;
+  //    sabreHitbox(player1X + 150*cos(radians(player1Angle)),player1Y + 150*sin(radians(player1Angle)));  
+  //  } if (attackHitTimer > 30) {
+  //    rotateW = 1.1;
+  //    fill(game1Background);
+  //    noStroke();
+  //    circle(player1X + 150*cos(radians(player1Angle)),player1Y + 150*sin(radians(player1Angle)), 150);
+  //    attackCDTimer = 0;
+  //    attackCDTimer = attackCDTimer + 1;
+  //    if (attackCDTimer > 90) {
+  //    attackCDTimer = 0;
+  //    }
+  //  }
+  //}
   
   if (attackMode == idleMode) {
   }
@@ -51,9 +74,14 @@ void game() {
 
   //hitbox system
   
-  if (dist(player1X + 150*cos(radians(player1Angle)),player1Y + 150*sin(radians(player1Angle)), player2X, player2Y) < player2Size/2) {
-    
+  if (dist(player1X + 150*cos(radians(player1Angle)),player1Y + 150*sin(radians(player1Angle)), player2X, player2Y) < 50) {
+
+    attackHPTimer = attackHPTimer + 1;
+    if (attackHPTimer <= 1) {
     Player2HP = Player2HP - 10;
+    } if (attackHPTimer > 100) {
+    attackHPTimer = 0;
+    }
     
   } else {
   
@@ -61,7 +89,9 @@ void game() {
 
   if (Player2HP == 0) {
   
-    mode = GAMEOVER;
+     mode = TRANSITION;
+     TRANSITIONMODE = INTRO;
+     transitionCounter = 0;
     
   }
   
@@ -113,7 +143,7 @@ void sabreHitbox(float x, float y) {
   translate(x,y);
   noStroke();
   fill(hitBox);
-  circle(0,0,150);
+  circle(0,0,130);
   popMatrix();
 
 }

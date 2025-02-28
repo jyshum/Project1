@@ -1,6 +1,6 @@
 void gameOver() {
 
-  background(game1Background);
+  background(introBackground);
   
 }
 

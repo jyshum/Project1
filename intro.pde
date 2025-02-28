@@ -1,7 +1,12 @@
 void intro() {
   
+  Player1HP = 100;
+  Player2HP = 100;
+
+  
   background(introBackground); //setting background color
   textSize(80); //setting text size
+  fill(white);
   text("FALLEN", 370,300); //game title
   
 }

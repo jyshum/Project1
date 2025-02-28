@@ -31,7 +31,7 @@ float player1X, player1attackX, player1Y, player1attackY, player1Size, player1An
 float rotateW;
 
 //keyboard variables
-boolean wkey, skey, akey, dkey, ekey, upkey, downkey, leftkey, rightkey;
+boolean wkey, skey, akey, dkey, ekey, upkey, downkey, leftkey, rightkey, ctrlkey;
 
 //HP Variables
 float Player1HP;
@@ -40,6 +40,8 @@ float Player2HP;
 //counter variables
 int transitionCounter;
 int attackHitTimer;
+int attackHPTimer;
+int attackCDTimer;
 
 //color-pallette
 color introBackground = #3B1414;
@@ -47,11 +49,13 @@ color game1Background = #814230;
 color black = #000000;
 color white = #FFFFFF;
 color player = #5F0D0D;
+color playerHit = #FF2E2E;
 color hitBox = #D33220;
 color handle = #5A3B29;
 color guard = #9B4C1E;
 color blade = #B4AFAB;
 color gold = #F5E211;
+
 
 void setup() {
 
@@ -87,10 +91,9 @@ void setup() {
   
   //initialize timer variables
   attackHitTimer = 0;
+  attackHPTimer = 0;
+  attackCDTimer = 0;
   
-  
-  mode = GAME;
-  selectedWeapon = SABRE;
   
 }
 

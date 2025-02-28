@@ -2,6 +2,8 @@ void gameMode() {
 
   background(introBackground);
   
+  
+  
   noStroke();
   tactileR(100,300,100,500);
   rect(100,100,200,400); //optionWEP1 -- Sabre
